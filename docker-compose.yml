@@ -1,13 +1,18 @@
 version: '3.8'
 
 services:
+  # Tor SOCKS5 Proxy - mandatory for all traffic
   tor-proxy:
     image: osminogin/tor-simple:latest
     container_name: anon_tor_proxy
     ports:
-      - "9050:9050" # SOCKS5 proxy
+      - "9050:9050"
+      - "9051:9051"
     restart: always
+    networks:
+      - anon-network
 
+  # SearXNG - Anonymous meta-search engine
   searxng:
     image: searxng/searxng:latest
     container_name: anon_searxng
@@ -15,14 +20,53 @@ services:
       - "8080:8080"
     environment:
       - SEARXNG_BASE_URL=http://localhost:8080/
+      - SEARXNG_SECRET_KEY=anon_superapp_tor_secret_key_change_me
+      - SEARXNG_LIMITER=false
+      - SEARXNG_IMAGE_PROXY=true
     volumes:
-      - ./search/searxng:/etc/searxng
+      - ./search/searxng/settings.yml:/etc/searxng/settings.yml:ro
+    depends_on:
+      - tor-proxy
     restart: always
+    networks:
+      - anon-network
 
+  # croc relay - P2P file transfer relay
   croc-relay:
     image: schollz/croc:latest
     container_name: anon_croc_relay
     command: relay
     ports:
-      - "9009-9013:9009-9013"
+      - "9009:9009"
+      - "9010:9010"
+      - "9011:9011"
+    environment:
+      - CROC_PASSWORDS=change_me_password
+      - CROC_STUN=stun.l.google.com:19302
     restart: always
+    networks:
+      - anon-network
+
+  # API Server
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: anon_superapp_api
+    ports:
+      - "8000:8000"
+    environment:
+      - SEARXNG_URL=http://searxng:8080
+      - TOR_PROXY=socks5://tor-proxy:9050
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+    depends_on:
+      - tor-proxy
+      - searxng
+      - croc-relay
+    restart: always
+    networks:
+      - anon-network
+
+networks:
+  anon-network:
+    driver: bridge
