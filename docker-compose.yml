@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  tor-proxy:
+    image: osminogin/tor-simple:latest
+    container_name: anon_tor_proxy
+    ports:
+      - "9050:9050" # SOCKS5 proxy
+    restart: always
+
+  searxng:
+    image: searxng/searxng:latest
+    container_name: anon_searxng
+    ports:
+      - "8080:8080"
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8080/
+    volumes:
+      - ./search/searxng:/etc/searxng
+    restart: always
+
+  croc-relay:
+    image: schollz/croc:latest
+    container_name: anon_croc_relay
+    command: relay
+    ports:
+      - "9009-9013:9009-9013"
+    restart: always
