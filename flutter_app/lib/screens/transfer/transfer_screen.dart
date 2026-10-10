@@ -466,7 +466,7 @@ class _TransferScreenState extends ConsumerState<TransferScreen> with SingleTick
         } else if (mounted) {
           setState(() => _isTransferring = false);
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Erreur lors de l'envoi')),
+            const SnackBar(content: Text("Erreur lors de l'envoi")),
           );
         }
       }

@@ -46,7 +46,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           _buildSettingsTile(
             icon: Icons.visibility_off,
-            title: 'Masquer l'activité',
+            title: "Masquer l'activité",
             subtitle: 'Aucun log de navigation',
             trailing: Switch(
               value: true,
@@ -242,7 +242,7 @@ class SettingsScreen extends ConsumerWidget {
           children: [
             TextField(
               decoration: InputDecoration(
-                labelText: 'URL de l'API',
+                labelText: "URL de l'API",
                 hintText: 'http://localhost:8000',
                 filled: true,
                 fillColor: const Color(0xFF0F0F1A),
