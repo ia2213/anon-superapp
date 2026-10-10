@@ -365,7 +365,7 @@ class _TransferScreenState extends ConsumerState<TransferScreen> with SingleTick
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          _buildHowItWorks(1, 'L'expéditeur sélectionne un fichier', Icons.upload_file),
+          _buildHowItWorks(1, "L'expéditeur sélectionne un fichier", Icons.upload_file),
           _buildHowItWorks(2, 'Un code phrase secret est généré', Icons.key),
           _buildHowItWorks(3, 'Vous entrez le code pour télécharger', Icons.download),
           _buildHowItWorks(4, 'Le fichier est chiffré P2P', Icons.lock),
