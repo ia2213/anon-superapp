@@ -1,0 +1,51 @@
+name: Build iOS IPA
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-14
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: |
+          cd flutter_app
+          flutter pub get
+
+      - name: Build iOS for simulator
+        run: |
+          cd flutter_app
+          flutter build ios --simulator --no-codesign
+
+      - name: Find built app
+        run: |
+          find flutter_app/build/ios/iphoneos -name "*.app" -type d
+
+      - name: Create IPA
+        run: |
+          cd flutter_app
+          APP_DIR=$(find build/ios/iphoneos -name "*.app" -type d | head -1)
+          mkdir -p Payload
+          cp -r "$APP_DIR" Payload/
+          zip -r -y anon-superapp.ipa Payload
+          rm -rf Payload
+          ls -la anon-superapp.ipa
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: anon-superapp-ipa
+          path: flutter_app/anon-superapp.ipa
+          retention-days: 1
