@@ -192,17 +192,18 @@ class ApiService {
 
   Future<List<ChatMessage>> getMessages(String roomId) async {
     return [
-      ChatMessage(messageId: "m1", senderId: "Tor-Node-1", content: "Connexion P2P via Tor chiffrée établie.", timestamp: DateTime.now().toIso8601String()),
-      ChatMessage(messageId: "m2", senderId: "Vous", content: "IP masquée, prêt.", timestamp: DateTime.now().toIso8601String()),
+      ChatMessage(id: "m1", roomId: roomId, senderId: "Tor-Node-1", content: "Connexion P2P via Tor chiffrée établie.", timestamp: DateTime.now()),
+      ChatMessage(id: "m2", roomId: roomId, senderId: "Vous", content: "IP masquée, prêt.", timestamp: DateTime.now()),
     ];
   }
 
   Future<ChatMessage?> sendMessage(String roomId, String content, String senderId) async {
     return ChatMessage(
-      messageId: "msg_${DateTime.now().millisecondsSinceEpoch}",
+      id: "msg_${DateTime.now().millisecondsSinceEpoch}",
+      roomId: roomId,
       senderId: senderId,
       content: content,
-      timestamp: DateTime.now().toIso8601String(),
+      timestamp: DateTime.now(),
     );
   }
 
