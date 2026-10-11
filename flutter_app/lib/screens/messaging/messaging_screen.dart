@@ -59,9 +59,9 @@ class _MessagingScreenState extends ConsumerState<MessagingScreen> {
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: const Color(0xFF00D4AA).withValues(alpha: 0.1),
+              color: const Color(0xFF00D4AA).withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: const Color(0xFF00D4AA).withValues(alpha: 0.3)),
+              border: Border.all(color: const Color(0xFF00D4AA).withOpacity(0.3)),
             ),
             child: Row(
               children: [
@@ -93,7 +93,7 @@ class _MessagingScreenState extends ConsumerState<MessagingScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.green.withValues(alpha: 0.2),
+                    color: Colors.green.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: const Row(

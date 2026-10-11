@@ -1,3 +1,5 @@
+import 'chat_message.dart';
+
 class ChatRoom {
   final String id;
   final String name;

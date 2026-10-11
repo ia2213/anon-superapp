@@ -146,7 +146,7 @@ class _WalletScreenState extends ConsumerState<WalletScreen> with SingleTickerPr
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.2),
+        color: Colors.white.withOpacity(0.2),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -169,7 +169,7 @@ class _WalletScreenState extends ConsumerState<WalletScreen> with SingleTickerPr
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            color: _getCryptoColor(rate.symbol).withValues(alpha: 0.2),
+            color: _getCryptoColor(rate.symbol).withOpacity(0.2),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Center(
@@ -235,9 +235,9 @@ class _WalletScreenState extends ConsumerState<WalletScreen> with SingleTickerPr
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: const Color(0xFF00D4AA).withValues(alpha: 0.1),
+              color: const Color(0xFF00D4AA).withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: const Color(0xFF00D4AA).withValues(alpha: 0.3)),
+              border: Border.all(color: const Color(0xFF00D4AA).withOpacity(0.3)),
             ),
             child: const Row(
               children: [

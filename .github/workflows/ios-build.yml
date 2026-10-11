@@ -22,10 +22,8 @@ jobs:
       - name: Ensure iOS project exists
         run: |
           cd flutter_app
-          if [ ! -d ios/Runner/Generated.xcconfig ]; then
-            echo "iOS project not fully configured, running flutter create..."
-            flutter create --platforms=ios .
-          fi
+          flutter create --platforms=ios --org com.anonsuperapp .
+          flutter pub get
 
       # 4. Install CocoaPods
       - name: Install CocoaPods

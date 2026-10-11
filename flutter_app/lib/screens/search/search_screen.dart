@@ -82,9 +82,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
-              color: const Color(0xFF00D4AA).withValues(alpha: 0.1),
+              color: const Color(0xFF00D4AA).withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: const Color(0xFF00D4AA).withValues(alpha: 0.3)),
+              border: Border.all(color: const Color(0xFF00D4AA).withOpacity(0.3)),
             ),
             child: const Row(
               children: [

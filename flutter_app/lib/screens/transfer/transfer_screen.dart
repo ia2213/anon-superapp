@@ -85,8 +85,8 @@ class _TransferScreenState extends ConsumerState<TransferScreen> with SingleTick
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF6C63FF).withValues(alpha: 0.2),
-                  const Color(0xFF00D4AA).withValues(alpha: 0.2),
+                  const Color(0xFF6C63FF).withOpacity(0.2),
+                  const Color(0xFF00D4AA).withOpacity(0.2),
                 ],
               ),
               borderRadius: BorderRadius.circular(12),
@@ -300,9 +300,9 @@ class _TransferScreenState extends ConsumerState<TransferScreen> with SingleTick
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: const Color(0xFF6C63FF).withValues(alpha: 0.1),
+              color: const Color(0xFF6C63FF).withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: const Color(0xFF6C63FF).withValues(alpha: 0.3)),
+              border: Border.all(color: const Color(0xFF6C63FF).withOpacity(0.3)),
             ),
             child: const Row(
               children: [
@@ -383,7 +383,7 @@ class _TransferScreenState extends ConsumerState<TransferScreen> with SingleTick
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: const Color(0xFF00D4AA).withValues(alpha: 0.2),
+              color: const Color(0xFF00D4AA).withOpacity(0.2),
               shape: BoxShape.circle,
             ),
             child: Center(

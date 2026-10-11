@@ -114,10 +114,10 @@ class DashboardTab extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF00D4AA).withValues(alpha: 0.1),
+                color: const Color(0xFF00D4AA).withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: const Color(0xFF00D4AA).withValues(alpha: 0.3),
+                  color: const Color(0xFF00D4AA).withOpacity(0.3),
                 ),
               ),
               child: const Row(
@@ -153,7 +153,7 @@ class DashboardTab extends StatelessWidget {
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.2),
+            color: color.withOpacity(0.2),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(Icons.circle, color: color),
