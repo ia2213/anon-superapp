@@ -112,9 +112,9 @@ class ApiService {
 
     // Fallback static realistic rates
     return {
-      "XMR": CryptoRate(symbol: "XMR", priceUsd: 165.5, priceEur: 152.0, change24h: 2.5),
-      "BTC": CryptoRate(symbol: "BTC", priceUsd: 88500.0, priceEur: 81000.0, change24h: 1.2),
-      "LTC": CryptoRate(symbol: "LTC", priceUsd: 85.0, priceEur: 78.0, change24h: -0.5),
+      "XMR": CryptoRate(symbol: "XMR", name: "Monero", usd: 165.5, change24h: 2.5),
+      "BTC": CryptoRate(symbol: "BTC", name: "Bitcoin", usd: 88500.0, change24h: 1.2),
+      "LTC": CryptoRate(symbol: "LTC", name: "Litecoin", usd: 85.0, change24h: -0.5),
     };
   }
 
