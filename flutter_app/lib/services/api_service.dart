@@ -186,7 +186,6 @@ class ApiService {
       ]
     };
   }
-}
 
   Future<ChatRoom?> createRoom(String name) async {
     return ChatRoom(
@@ -196,3 +195,4 @@ class ApiService {
       createdAt: DateTime.now(),
     );
   }
+}
