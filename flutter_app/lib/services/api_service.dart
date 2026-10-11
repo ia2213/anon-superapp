@@ -53,6 +53,7 @@ class ApiService {
               title: title,
               url: link,
               snippet: snippet,
+              category: 'general',
               engine: 'DuckDuckGo / Tor',
             ));
           }
