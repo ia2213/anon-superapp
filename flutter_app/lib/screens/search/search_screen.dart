@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../services/api_service.dart';
-import '../models/search_result.dart';
+import '../../services/api_service.dart';
+import '../../models/search_result.dart';
 
 final searchProvider = FutureProvider.family<List<SearchResult>, String>((ref, query) async {
   final api = ApiService();

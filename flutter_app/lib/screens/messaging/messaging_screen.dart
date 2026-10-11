@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../services/api_service.dart';
-import '../models/chat_room.dart';
-import '../models/chat_message.dart';
+import '../../services/api_service.dart';
+import '../../models/chat_room.dart';
+import '../../models/chat_message.dart';
 
 final roomsProvider = FutureProvider<List<ChatRoom>>((ref) async {
   final api = ApiService();

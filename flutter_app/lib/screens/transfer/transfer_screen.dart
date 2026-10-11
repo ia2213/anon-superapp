@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
-import '../services/api_service.dart';
-import '../models/file_transfer.dart';
+import '../../services/api_service.dart';
+import '../../models/file_transfer.dart';
 
 final transfersProvider = StateNotifierProvider<TransfersNotifier, List<FileTransfer>>((ref) {
   return TransfersNotifier();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../services/api_service.dart';
+import '../../services/api_service.dart';
 
 final systemStatusProvider = FutureProvider<Map<String, dynamic>>((ref) async {
   final api = ApiService();
