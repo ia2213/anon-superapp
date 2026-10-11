@@ -237,7 +237,7 @@ class _WalletScreenState extends ConsumerState<WalletScreen> with SingleTickerPr
                     const Divider(),
                     Text('ID: ${_currentOrder!.orderId}'),
                     const SizedBox(height: 8),
-                    Text('Montant dû: ${_currentOrder!.cryptoAmountDue.toString(precision: 4)} ${_currentOrder!.cryptoSymbol}'),
+                    Text('Montant dû: ${_currentOrder!.cryptoAmountDue.toStringAsFixed(4)} ${_currentOrder!.cryptoSymbol}'),
                     const SizedBox(height: 8),
                     const Text('Adresse de dépôt :'),
                     SelectableText(_currentOrder!.depositAddress, style: const TextStyle(color: Color(0xFF00D4AA), fontFamily: 'monospace')),
