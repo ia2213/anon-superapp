@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../services/api_service.dart';
 import '../../models/search_result.dart';
+import 'browser_screen.dart';
 
 final searchProvider = FutureProvider.family<List<SearchResult>, String>((ref, query) async {
   final api = ApiService();
@@ -134,7 +135,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       child: InkWell(
-        onTap: () => _openUrl(result.url),
+        onTap: () => _openUrl(result),
         borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -189,10 +190,12 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     );
   }
 
-  Future<void> _openUrl(String url) async {
-    final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    }
+  Future<void> _openUrl(SearchResult result) async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AnonymousBrowserScreen(result: result),
+      ),
+    );
   }
 }

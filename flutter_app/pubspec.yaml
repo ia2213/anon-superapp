@@ -29,7 +29,7 @@ dependencies:
   # File Handling
   file_picker: ^8.1.2
   
-  # URL Launcher
+  # URL Launcher & WebView
   url_launcher: ^6.3.0
 
 dev_dependencies:
