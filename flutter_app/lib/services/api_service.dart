@@ -176,17 +176,17 @@ class ApiService {
 
   Future<ChatRoom?> createRoom(String name) async {
     return ChatRoom(
-      roomId: "room_${DateTime.now().millisecondsSinceEpoch}",
+      id: "room_${DateTime.now().millisecondsSinceEpoch}",
       name: name,
       participants: ["Vous", "Peer-Tor"],
-      createdAt: DateTime.now().toIso8601String(),
+      createdAt: DateTime.now(),
     );
   }
 
   Future<List<ChatRoom>> getRooms() async {
     return [
-      ChatRoom(roomId: "1", name: "Canal Anonyme Général", participants: ["Tor-Node-1", "Vous"], createdAt: DateTime.now().toIso8601String()),
-      ChatRoom(roomId: "2", name: "Échange Sécurisé P2P", participants: ["Peer-Berty", "Vous"], createdAt: DateTime.now().toIso8601String()),
+      ChatRoom(id: "1", name: "Canal Anonyme Général", participants: ["Tor-Node-1", "Vous"], createdAt: DateTime.now()),
+      ChatRoom(id: "2", name: "Échange Sécurisé P2P", participants: ["Peer-Berty", "Vous"], createdAt: DateTime.now()),
     ];
   }
 
