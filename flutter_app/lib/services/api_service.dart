@@ -221,7 +221,8 @@ class ApiService {
       fileName: filePath.split('/').last,
       codePhrase: code,
       status: "pending",
-      sizeBytes: 102400,
+      fileSize: 102400,
+      createdAt: DateTime.now(),
     );
   }
 
@@ -231,7 +232,8 @@ class ApiService {
       fileName: "document_recu_chiffre.pdf",
       codePhrase: codephrase,
       status: "completed",
-      sizeBytes: 204800,
+      fileSize: 204800,
+      createdAt: DateTime.now(),
     );
   }
 
