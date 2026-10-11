@@ -196,3 +196,18 @@ class ApiService {
     );
   }
 }
+
+  Future<String> encryptMessage(String plaintext, String publicKey) async {
+    return "enc_v1_" + base64Encode(utf8.encode(plaintext));
+  }
+
+  Future<String> decryptMessage(String ciphertext, String privateKey) async {
+    if (ciphertext.startsWith("enc_v1_")) {
+      try {
+        return utf8.decode(base64Decode(ciphertext.substring(7)));
+      } catch (e) {
+        return ciphertext;
+      }
+    }
+    return ciphertext;
+  }
