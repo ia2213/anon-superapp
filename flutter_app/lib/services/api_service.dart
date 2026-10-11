@@ -187,3 +187,12 @@ class ApiService {
     };
   }
 }
+
+  Future<ChatRoom?> createRoom(String name) async {
+    return ChatRoom(
+      id: "room_${DateTime.now().millisecondsSinceEpoch}",
+      name: name,
+      participants: ["Vous", "Peer-Tor"],
+      createdAt: DateTime.now(),
+    );
+  }
