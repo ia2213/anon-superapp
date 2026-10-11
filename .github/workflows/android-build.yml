@@ -21,6 +21,9 @@ jobs:
           cd flutter_app
           flutter create --platforms=android --org com.anonsuperapp .
           flutter pub get
+          # Fix Kotlin version for webview_flutter compatibility
+          sed -i "s/ext.kotlin_version = .*/ext.kotlin_version = '1.9.24'/" android/build.gradle
+          sed -i "s/implementation "org.jetbrains.kotlin.android" /implementation "org.jetbrains.kotlin.android" '1.9.24'/" android/settings.gradle
           flutter build apk --release
 
       - uses: actions/upload-artifact@v4
