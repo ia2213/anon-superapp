@@ -131,15 +131,19 @@ class ApiService {
   }
 
   Future<PrepaidCard?> createCardOrder(double amountUsd, String cryptoSymbol) async {
+    double rate = cryptoSymbol == 'XMR' ? 165.0 : (cryptoSymbol == 'BTC' ? 88500.0 : 85.0);
+    double cryptoAmount = (amountUsd * 1.03) / rate;
     return PrepaidCard(
       orderId: "card_${DateTime.now().millisecondsSinceEpoch}",
-      amountUsd: amountUsd,
-      cryptoSymbol: cryptoSymbol,
-      depositAddress: cryptoSymbol == 'XMR' ? "888tNkZrPN6JsEgekjMnSB9qN59q1y115q12..." : "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
       status: "pending_deposit",
+      provider: "CakePay Zero-KYC",
+      depositAddress: cryptoSymbol == 'XMR' ? "888tNkZrPN6JsEgekjMnSB9qN59q1y115q12..." : "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+      cryptoSymbol: cryptoSymbol,
+      cryptoAmountDue: cryptoAmount,
+      cardAmountUsd: amountUsd,
+      kycLevel: "Zero-KYC",
       cardNumber: "**** **** **** 4242",
-      expiry: "12/28",
-      cvv: "***",
+      expiryDate: "12/28",
     );
   }
 
